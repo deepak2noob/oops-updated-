@@ -1,17 +1,11 @@
-import tkinter as tk
-from tkinter import Tk
+class Car:
+    def __init__(self, make, model):
+        self._make = make  # Protected variable
+        self._model = model  # Protected variable
 
-def selection():
-    print("You selected the option:", var.get())
-    print(type(var.get()))
+    def _drive(self):  # Protected method
+        print(f"Driving the {self._make} {self._model}")
 
-root = Tk()
-var = tk.IntVar()
-
-radio1 = tk.Radiobutton(root, text="Option 1", variable=var, value="1", command=selection)
-radio2 = tk.Radiobutton(root, text="Option 2", variable=var, value="2", command=selection)
-
-radio1.pack()
-radio2.pack()
-
-root.mainloop()
+my_car = Car("Toyota", "Corolla")
+print(my_car._make)  # Output: Toyota
+my_car._drive()  # Output: Driving the Toyota Corolla
